@@ -1,0 +1,37 @@
+{
+  "name": "storybook-linaria",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/preset-env": "^7.28.6",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@linaria/core": "^6.3.0",
+    "@linaria/react": "^6.3.0",
+    "@linaria/webpack-loader": "^5.0.4",
+    "@wyw-in-js/babel-preset": "^0.6.0",
+    "@wyw-in-js/webpack-loader": "^0.6.0",
+    "babel-loader": "^10.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
+    "@storybook/react-webpack5": "^10.1.11",
+    "prop-types": "^15.8.1",
+    "storybook": "^10.1.11"
+  },
+  "overrides": {
+    "@wyw-in-js/processor-utils": "^0.6.0"
+  }
+}
