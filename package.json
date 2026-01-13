@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "node esbuild.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,8 @@
     "@storybook/addon-docs": "^10.1.11",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
     "@storybook/react-webpack5": "^10.1.11",
+    "esbuild": "0.27.2",
+    "glob": "^13.0.0",
     "prop-types": "^15.8.1",
     "storybook": "^10.1.11"
   },
