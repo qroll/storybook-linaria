@@ -17,8 +17,8 @@ export default function Home() {
 function HomeContent() {
   const { theme, setTheme } = useTheme();
 
-  const handleThemeChange = (newTheme: ThemeType) => {
-    setTheme(newTheme);
+  const handleThemeChange = (theme: ThemeType) => {
+    setTheme(theme);
   };
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -36,7 +36,7 @@ function HomeContent() {
               (themeOption) => (
                 <button
                   key={themeOption}
-                  onClick={() => handleThemeChange(themeOption)}
+                  onClick={() => handleThemeChange(themeOption as ThemeType)}
                   className={`px-4 py-2 rounded ${
                     theme === themeOption
                       ? "bg-blue-500 text-white"
@@ -75,7 +75,7 @@ function HomeContent() {
                   Medium Size:
                 </p>
                 <Button
-                  sizeType="medium"
+                  sizeType="default"
                   onClick={() => alert("Button medium clicked!")}
                 >
                   Medium Button
@@ -146,7 +146,7 @@ function HomeContent() {
                   Medium Size:
                 </p>
                 <ButtonV1
-                  sizeType="medium"
+                  sizeType="default"
                   onClick={() => alert("ButtonV1 medium clicked!")}
                 >
                   Medium Button
