@@ -3,14 +3,52 @@
 import { Button } from "storybook-linaria/button";
 import { ButtonV1 } from "storybook-linaria/button-v1";
 import "storybook-linaria/button/styles.css";
+import { ThemeType } from "storybook-linaria/theme";
+import { ThemeProvider, useTheme } from "storybook-linaria/ThemeProvider";
 
 export default function Home() {
+  return (
+    <ThemeProvider>
+      <HomeContent />
+    </ThemeProvider>
+  );
+}
+
+function HomeContent() {
+  const { theme, setTheme } = useTheme();
+
+  const handleThemeChange = (newTheme: ThemeType) => {
+    setTheme(newTheme);
+  };
   return (
     <div className="min-h-screen bg-white font-sans">
       <main className="container mx-auto px-8 py-16 max-w-7xl">
         <h1 className="text-4xl font-bold mb-12 text-center">
           Button Component Comparison
         </h1>
+
+        <div className="mb-8 text-center">
+          <p className="text-sm text-gray-600 mb-3 font-medium">
+            Select Theme:
+          </p>
+          <div className="flex justify-center space-x-4">
+            {(["base", "default", "dark", "light"] as ThemeType[]).map(
+              (themeOption) => (
+                <button
+                  key={themeOption}
+                  onClick={() => handleThemeChange(themeOption)}
+                  className={`px-4 py-2 rounded ${
+                    theme === themeOption
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-200 text-gray-700"
+                  }`}
+                >
+                  {themeOption.charAt(0).toUpperCase() + themeOption.slice(1)}
+                </button>
+              )
+            )}
+          </div>
+        </div>
 
         <div className="grid grid-cols-2 gap-12">
           {/* Button (Linaria) */}
@@ -61,7 +99,7 @@ export default function Home() {
                   Secondary Style:
                 </p>
                 <Button
-                  sizeType="medium"
+                  sizeType="large"
                   styleType="secondary"
                   onClick={() => alert("Button secondary clicked!")}
                 >
@@ -74,7 +112,7 @@ export default function Home() {
                   Danger Style:
                 </p>
                 <Button
-                  sizeType="medium"
+                  sizeType="large"
                   danger
                   onClick={() => alert("Button danger clicked!")}
                 >
@@ -132,7 +170,7 @@ export default function Home() {
                   Secondary Style:
                 </p>
                 <ButtonV1
-                  sizeType="medium"
+                  sizeType="default"
                   styleType="secondary"
                   onClick={() => alert("ButtonV1 secondary clicked!")}
                 >
@@ -145,7 +183,7 @@ export default function Home() {
                   Danger Style:
                 </p>
                 <ButtonV1
-                  sizeType="medium"
+                  sizeType="default"
                   danger
                   onClick={() => alert("ButtonV1 danger clicked!")}
                 >

@@ -31,13 +31,13 @@ const Motion = {
 
 const ThemeButton = {
   "button-radius": "4px",
-  "button-default-colour-bg": "#0052CC",
+  "button-default-colour-bg": "var(--button-bg)",
   "button-default-colour-bg-hover": "#0065FF",
-  "button-default-colour-text": "#FFFFFF",
-  "button-secondary-colour-border": "#0052CC",
-  "button-secondary-colour-text": "#0052CC",
-  "button-light-colour-text": "#172B4D",
-  "button-link-colour-text": "#0052CC",
+  "button-default-colour-text": "var(--font-color)",
+  "button-secondary-colour-border": "var(--button-border)",
+  "button-secondary-colour-text": "var(--font-color)",
+  "button-light-colour-text": "var(--font-color)",
+  "button-link-colour-text": "var(--font-color)",
 };
 
 const Colour = {

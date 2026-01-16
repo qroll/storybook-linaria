@@ -1,7 +1,4 @@
-import { fn } from "storybook/test";
-
 import { Button } from "../../src/button";
-import { css } from "@linaria/core";
 
 export default {
   title: "Example/Button",
@@ -27,16 +24,6 @@ export const Primary = {
           Hello
         </Button>
         <Button disabled>Hello</Button>
-        <Button
-          styleType="secondary"
-          sizeType="large"
-          className={css`
-            margin: 16px;
-          `}
-          style={{ backgroundColor: "purple" }}
-        >
-          Hello
-        </Button>
       </>
     );
   },

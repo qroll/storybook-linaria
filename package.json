@@ -12,7 +12,9 @@
     "./button-v1": "./dist/button-v1/index.js",
     "./button/styles.css": "./dist/button/button.styles.css",
     "./button-v1/styles.css": "./dist/button-v1/button.styles.css",
-    "./typesets": "./dist/typesets/index.js"
+    "./typesets": "./dist/typesets/index.js",
+    "./ThemeProvider": "./dist/ThemeProvider.js",
+    "./theme": "./dist/theme.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -15,7 +15,6 @@ export const ButtonV1 = (props: ButtonV1Props) => {
       $buttonStyle={styleType}
       $sizeType={sizeType}
       $danger={danger}
-      className={className}
       {...otherProps}
     />
   );
