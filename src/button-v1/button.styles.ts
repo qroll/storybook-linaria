@@ -179,6 +179,22 @@ export const StyledButton = styled.button<MainStyleProps>`
     color: ${Colour["text-disabled"]};
     cursor: not-allowed;
   }
+
+  ${(props) => {
+    switch (props.$buttonStyle) {
+      case "secondary":
+        return props.$danger ? dangerSecondaryStyle : secondaryStyle;
+      case "light":
+        return lightStyle;
+      case "link":
+        return linkStyle;
+      case "disabled":
+        return disabledStyle;
+      case "default":
+      default:
+        return props.$danger ? dangerDefaultStyle : defaultStyle;
+    }
+  }}
 `;
 
 export const dangerSecondaryStyle = css`

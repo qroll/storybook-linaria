@@ -5,8 +5,8 @@ export const ButtonV1 = (props: ButtonV1Props) => {
   const {
     styleType = "default",
     sizeType = "default",
-    className,
     danger,
+    disabled,
     ...otherProps
   } = props;
 
