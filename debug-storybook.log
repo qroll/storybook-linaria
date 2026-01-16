@@ -1,0 +1,24 @@
+[15:36:09.651] [INFO] storybook v10.1.11
+[15:36:09.871] [DEBUG] Getting package.json info for /Users/ashley/Desktop/Projects/storybook-linaria/package.json...
+[15:36:10.319] [INFO] Starting...
+[15:36:10.337] [WARN] No story files found for the specified pattern: [34mstories/**/*.mdx[39m
+[15:36:10.447] [DEBUG] Starting preview..
+[15:36:10.458] [INFO] Addon-docs: using MDX3
+[15:36:10.472] [INFO] Using implicit CSS loaders
+[15:36:10.475] [INFO] Using default Webpack5 setup
+[15:36:12.547] [ERROR] Failed to build the preview
+[15:36:12.557] [WARN] Force closed preview build
+[15:36:12.559] [ERROR] [38;2;241;97;97mSB_BUILDER-WEBPACK5_0003 (WebpackCompilationError): There were problems when compiling your code with Webpack.
+Run Storybook with --debug-webpack for more information.[39m
+    at starter (file://./node_modules/@storybook/builder-webpack5/dist/index.js:799:11)
+    at starter.next (<anonymous>)
+    at Module.start (file://./node_modules/@storybook/builder-webpack5/dist/index.js:857:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async storybookDevServer (file://./node_modules/storybook/dist/core-server/index.js:6806:82)
+    at async buildOrThrow (file://./node_modules/storybook/dist/core-server/index.js:5555:12)
+    at async buildDevStandalone (file://./node_modules/storybook/dist/core-server/index.js:7208:66)
+    at async withTelemetry (file://./node_modules/storybook/dist/_node-chunks/chunk-2372JZ52.js:209:12)
+    at async dev (file://./node_modules/storybook/dist/bin/core.js:2734:3)
+    at async _Command.<anonymous> (file://./node_modules/storybook/dist/bin/core.js:2801:92)
+[15:36:12.566] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.

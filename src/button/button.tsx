@@ -1,4 +1,5 @@
-import { css, cx } from "@linaria/core";
+import { cx } from "@linaria/core";
+import { typesets } from "../typesets";
 import {
   StyledButton,
   dangerDefaultStyle,
@@ -8,7 +9,6 @@ import {
   secondaryStyle,
 } from "./button.styles";
 import { ButtonProps } from "./types";
-import { typesets } from "../typesets";
 
 export const Button = (props: ButtonProps) => {
   const {
@@ -48,16 +48,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <StyledButton
       $buttonStyle={styleType}
-      className={cx(
-        buttonStyle(),
-        buttonSize(),
-        disabledStyle,
-        className,
-        css`
-          margin-left: 16px;
-          color: pink;
-        `
-      )}
+      className={cx(buttonStyle(), buttonSize(), disabledStyle, className)}
       {...otherProps}
     />
   );
