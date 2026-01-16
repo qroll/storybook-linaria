@@ -1,7 +1,19 @@
 {
   "name": "storybook-linaria",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./button": "./dist/button/index.js",
+    "./button-v1": "./dist/button-v1/index.js",
+    "./button/styles.css": "./dist/button/button.styles.css",
+    "./button-v1/styles.css": "./dist/button-v1/button.styles.css",
+    "./typesets": "./dist/typesets/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
@@ -22,6 +34,7 @@
     "@wyw-in-js/webpack-loader": "^0.6.0",
     "babel-loader": "^10.0.0",
     "babel-plugin-styled-components": "^2.1.4",
+    "clsx": "^2.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "styled-components": "^6.3.6"

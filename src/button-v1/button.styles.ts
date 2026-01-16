@@ -1,5 +1,4 @@
-import { css } from "styled-components";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 export type MainButtonStyle =
   | "default"
@@ -12,6 +11,8 @@ export type MainButtonSize = "default" | "small" | "large";
 
 export interface MainStyleProps {
   $buttonStyle: MainButtonStyle;
+  $sizeType: MainButtonSize;
+  $danger?: boolean;
 }
 
 const Spacing = {
@@ -77,8 +78,34 @@ const MediaQuery = {
 };
 
 export const StyledButton = styled.button<MainStyleProps>`
-  padding: ${Spacing["spacing-8"]} ${Spacing["spacing-16"]};
-  min-width: 4rem;
+  /* Size styles */
+  ${({ $sizeType }) => {
+    switch ($sizeType) {
+      case "small":
+        return css`
+          padding: 0.375rem 0.75rem;
+          min-width: 3rem;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        `;
+      case "large":
+        return css`
+          padding: 0.75rem 1.5rem;
+          min-width: 5rem;
+          font-size: 1.125rem;
+          line-height: 1.5rem;
+        `;
+      default:
+        return css`
+          padding: ${Spacing["spacing-8"]} ${Spacing["spacing-16"]};
+          min-width: 4rem;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        `;
+    }
+  }}
+
+  /* Base styles */
   border: ${Border["width-010"]} ${Border["solid"]} transparent;
   transition: all ${Motion["duration-250"]} ${Motion["ease-default"]};
   border-radius: ${ThemeButton["button-radius"]};
@@ -87,8 +114,70 @@ export const StyledButton = styled.button<MainStyleProps>`
   align-items: center;
   justify-content: center;
 
-  &:hover {
-    background-color: ${Colour["bg-hover-neutral"]};
+  /* Style variants */
+  ${({ $buttonStyle, $danger }) => {
+    if ($danger) {
+      switch ($buttonStyle) {
+        case "secondary":
+          return css`
+            background-color: ${Colour.bg};
+            border-color: ${Colour["bg-error-strong"]};
+            color: ${Colour["text-error"]};
+          `;
+        default:
+          return css`
+            background-color: ${Colour["bg-error-strong"]};
+            color: ${ThemeButton["button-default-colour-text"]};
+          `;
+      }
+    }
+
+    switch ($buttonStyle) {
+      case "secondary":
+        return css`
+          background-color: ${Colour.bg};
+          border-color: ${ThemeButton["button-secondary-colour-border"]};
+          color: ${ThemeButton["button-secondary-colour-text"]};
+        `;
+      case "light":
+        return css`
+          background-color: ${Colour.bg};
+          border-color: ${Colour.border};
+          color: ${ThemeButton["button-light-colour-text"]};
+        `;
+      case "link":
+        return css`
+          background-color: transparent;
+          color: ${ThemeButton["button-link-colour-text"]};
+        `;
+      default:
+        return css`
+          background-color: ${ThemeButton["button-default-colour-bg"]};
+          color: ${ThemeButton["button-default-colour-text"]};
+        `;
+    }
+  }}
+
+  /* Hover states */
+  &:hover:not(:disabled) {
+    ${({ $buttonStyle }) => {
+      if ($buttonStyle === "default") {
+        return css`
+          background-color: ${ThemeButton["button-default-colour-bg-hover"]};
+        `;
+      } else {
+        return css`
+          background-color: ${Colour["bg-hover-neutral"]};
+        `;
+      }
+    }}
+  }
+
+  /* Disabled state */
+  &:disabled {
+    background-color: ${Colour["bg-disabled"]};
+    color: ${Colour["text-disabled"]};
+    cursor: not-allowed;
   }
 `;
 
@@ -131,4 +220,25 @@ export const disabledStyle = css`
     color: ${Colour["text-disabled"]};
     cursor: not-allowed;
   }
+`;
+
+export const smallSizeStyle = css`
+  padding: 0.375rem 0.75rem;
+  min-width: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+`;
+
+export const defaultSizeStyle = css`
+  padding: ${Spacing["spacing-8"]} ${Spacing["spacing-16"]};
+  min-width: 4rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+`;
+
+export const largeSizeStyle = css`
+  padding: 0.75rem 1.5rem;
+  min-width: 5rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 `;

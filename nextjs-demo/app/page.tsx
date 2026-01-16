@@ -25,7 +25,7 @@ export default function Home() {
                   Small Size:
                 </p>
                 <Button
-                  size="small"
+                  sizeType="small"
                   onClick={() => alert("Button small clicked!")}
                 >
                   Small Button
@@ -37,7 +37,7 @@ export default function Home() {
                   Medium Size:
                 </p>
                 <Button
-                  size="medium"
+                  sizeType="medium"
                   onClick={() => alert("Button medium clicked!")}
                 >
                   Medium Button
@@ -49,7 +49,7 @@ export default function Home() {
                   Large Size:
                 </p>
                 <Button
-                  size="large"
+                  sizeType="large"
                   onClick={() => alert("Button large clicked!")}
                 >
                   Large Button
@@ -61,7 +61,7 @@ export default function Home() {
                   Secondary Style:
                 </p>
                 <Button
-                  size="medium"
+                  sizeType="medium"
                   styleType="secondary"
                   onClick={() => alert("Button secondary clicked!")}
                 >
@@ -74,7 +74,7 @@ export default function Home() {
                   Danger Style:
                 </p>
                 <Button
-                  size="medium"
+                  sizeType="medium"
                   danger
                   onClick={() => alert("Button danger clicked!")}
                 >
@@ -96,7 +96,7 @@ export default function Home() {
                   Small Size:
                 </p>
                 <ButtonV1
-                  size="small"
+                  sizeType="small"
                   onClick={() => alert("ButtonV1 small clicked!")}
                 >
                   Small Button
@@ -108,7 +108,7 @@ export default function Home() {
                   Medium Size:
                 </p>
                 <ButtonV1
-                  size="medium"
+                  sizeType="medium"
                   onClick={() => alert("ButtonV1 medium clicked!")}
                 >
                   Medium Button
@@ -120,7 +120,7 @@ export default function Home() {
                   Large Size:
                 </p>
                 <ButtonV1
-                  size="large"
+                  sizeType="large"
                   onClick={() => alert("ButtonV1 large clicked!")}
                 >
                   Large Button
@@ -132,7 +132,7 @@ export default function Home() {
                   Secondary Style:
                 </p>
                 <ButtonV1
-                  size="medium"
+                  sizeType="medium"
                   styleType="secondary"
                   onClick={() => alert("ButtonV1 secondary clicked!")}
                 >
@@ -145,7 +145,7 @@ export default function Home() {
                   Danger Style:
                 </p>
                 <ButtonV1
-                  size="medium"
+                  sizeType="medium"
                   danger
                   onClick={() => alert("ButtonV1 danger clicked!")}
                 >

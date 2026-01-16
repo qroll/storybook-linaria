@@ -1,12 +1,14 @@
 import { cx } from "@linaria/core";
-import { typesets } from "../typesets";
 import {
   StyledButton,
   dangerDefaultStyle,
   dangerSecondaryStyle,
+  defaultSizeStyle,
   defaultStyle,
   disabledStyle,
+  largeSizeStyle,
   secondaryStyle,
+  smallSizeStyle,
 } from "./button.styles";
 import { ButtonProps } from "./types";
 
@@ -37,11 +39,11 @@ export const Button = (props: ButtonProps) => {
   const buttonSize = () => {
     switch (sizeType) {
       case "small":
-        return typesets.sm;
+        return smallSizeStyle;
       case "large":
-        return typesets.lg;
+        return largeSizeStyle;
       default:
-        return typesets.bl;
+        return defaultSizeStyle;
     }
   };
 

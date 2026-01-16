@@ -77,8 +77,6 @@ const MediaQuery = {
 };
 
 export const StyledButton = styled.button<MainStyleProps>`
-  padding: ${Spacing["spacing-8"]} ${Spacing["spacing-16"]};
-  min-width: 4rem;
   border: ${Border["width-010"]} ${Border["solid"]} transparent;
   transition: all ${Motion["duration-250"]} ${Motion["ease-default"]};
   border-radius: ${ThemeButton["button-radius"]};
@@ -131,4 +129,25 @@ export const disabledStyle = css`
     color: ${Colour["text-disabled"]};
     cursor: not-allowed;
   }
+`;
+
+export const smallSizeStyle = css`
+  padding: 0.375rem 0.75rem;
+  min-width: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+`;
+
+export const defaultSizeStyle = css`
+  padding: ${Spacing["spacing-8"]} ${Spacing["spacing-16"]};
+  min-width: 4rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+`;
+
+export const largeSizeStyle = css`
+  padding: 0.75rem 1.5rem;
+  min-width: 5rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 `;
