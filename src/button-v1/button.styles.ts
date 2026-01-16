@@ -12,6 +12,7 @@ export type MainButtonSize = "default" | "small" | "large";
 
 export interface MainStyleProps {
   $buttonStyle: MainButtonStyle;
+  $danger?: boolean | undefined;
 }
 
 const Spacing = {
@@ -90,6 +91,22 @@ export const StyledButton = styled.button<MainStyleProps>`
   &:hover {
     background-color: ${Colour["bg-hover-neutral"]};
   }
+
+  ${(props) => {
+    switch (props.$buttonStyle) {
+      case "secondary":
+        return props.$danger ? dangerSecondaryStyle : secondaryStyle;
+      case "light":
+        return lightStyle;
+      case "link":
+        return linkStyle;
+      case "disabled":
+        return disabledStyle;
+      case "default":
+      default:
+        return props.$danger ? dangerDefaultStyle : defaultStyle;
+    }
+  }}
 `;
 
 export const dangerSecondaryStyle = css`
