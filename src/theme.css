@@ -1,0 +1,48 @@
+/* Default theme */
+:root {
+  --font-color: #18181b;
+  --button-bg: #3b82f6;
+  --button-border: #3b82f6;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --font-color: #ffffff;
+  --button-bg: #2563eb;
+  --button-border: #2563eb;
+}
+
+/* Lifesg theme */
+[data-theme="lifesg"] {
+  --font-color: #18181b;
+  --button-bg: #00a3a3;
+  --button-border: #00a3a3;
+}
+
+/* Bookingsg theme */
+[data-theme="bookingsg"] {
+  --font-color: #18181b;
+  --button-bg: #ff6b35;
+  --button-border: #ff6b35;
+}
+
+/* Mylegacy theme */
+[data-theme="mylegacy"] {
+  --font-color: #18181b;
+  --button-bg: #6f42c1;
+  --button-border: #6f42c1;
+}
+
+/* Light theme - same as default */
+[data-theme="light"] {
+  --font-color: #18181b;
+  --button-bg: #3b82f6;
+  --button-border: #3b82f6;
+}
+
+/* Base theme - same as default */
+[data-theme="base"] {
+  --font-color: #18181b;
+  --button-bg: #3b82f6;
+  --button-border: #3b82f6;
+}

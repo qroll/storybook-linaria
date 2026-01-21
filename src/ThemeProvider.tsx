@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useContext } from "react";
-import { ThemeType, themes } from "./theme";
+import { ThemeType } from "./theme";
 
 interface ThemeContextType {
   theme: ThemeType;
@@ -21,16 +21,16 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
 
   React.useEffect(() => {
     const root = document.documentElement;
-    const currentTheme = themes[theme];
-    root.style.setProperty("--font-color", currentTheme.fontColor);
-    root.style.setProperty("--button-bg", currentTheme.buttonBg);
-    root.style.setProperty("--button-border", currentTheme.buttonBorder);
+    // Set data-theme attribute for CSS-based theming
+    root.setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        {children}
+      </ThemeContext.Provider>
+    </>
   );
 };
 
