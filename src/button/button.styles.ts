@@ -33,11 +33,11 @@ const ThemeButton = {
   "button-radius": "4px",
   "button-default-colour-bg": "var(--button-bg)",
   "button-default-colour-bg-hover": "#0065FF",
-  "button-default-colour-text": "var(--font-color)",
+  "button-default-colour-text": "var(--text-inverse)",
   "button-secondary-colour-border": "var(--button-border)",
-  "button-secondary-colour-text": "var(--font-color)",
-  "button-light-colour-text": "var(--font-color)",
-  "button-link-colour-text": "var(--font-color)",
+  "button-secondary-colour-text": "var(--text-primary)",
+  "button-light-colour-text": "var(--text-primary)",
+  "button-link-colour-text": "var(--text-primary)",
 };
 
 const Colour = {
