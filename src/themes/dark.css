@@ -1,0 +1,5 @@
+[data-theme="dark"] {
+  --font-color: var(--white);
+  --button-bg: var(--primary-60);
+  --button-border: var(--primary-60);
+}

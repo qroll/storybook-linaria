@@ -1,5 +1,6 @@
 import React, { ReactNode, createContext, useContext } from "react";
-import { ThemeType } from "./theme";
+import "./theme.css";
+import { ThemeType } from "./theme.types.js";
 
 interface ThemeContextType {
   theme: ThemeType;

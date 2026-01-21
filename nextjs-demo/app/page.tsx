@@ -3,9 +3,9 @@
 import { Button } from "storybook-linaria/button";
 import { ButtonV1 } from "storybook-linaria/button-v1";
 import "storybook-linaria/button/styles.css";
-import { ThemeType } from "storybook-linaria/theme";
 import "storybook-linaria/theme.css";
 import { ThemeProvider, useTheme } from "storybook-linaria/ThemeProvider";
+import { ThemeType } from "../../dist/theme.types";
 
 export default function Home() {
   return (
@@ -35,13 +35,17 @@ function HomeContent() {
           <div className="flex justify-center space-x-4">
             {(
               [
-                "base",
-                "default",
-                "dark",
-                "light",
                 "lifesg",
                 "bookingsg",
                 "mylegacy",
+                "rbs",
+                "ccube",
+                "oneservice",
+                "pa",
+                "a11yplayground",
+                "supportgowhere",
+                "imda",
+                "spf",
               ] as ThemeType[]
             ).map((themeOption) => (
               <button
