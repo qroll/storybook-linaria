@@ -16,13 +16,12 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
   children,
-  initialTheme = "default",
+  initialTheme = "lifesg",
 }) => {
   const [theme, setTheme] = React.useState<ThemeType>(initialTheme);
 
   React.useEffect(() => {
     const root = document.documentElement;
-    // Set data-theme attribute for CSS-based theming
     root.setAttribute("data-theme", theme);
   }, [theme]);
 
