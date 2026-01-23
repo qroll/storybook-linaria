@@ -1,77 +1,18 @@
-const esbuild = require("esbuild");
-const { globSync } = require("glob");
-const linariaEsbuildPlugin = require("@wyw-in-js/esbuild").default;
+const { execSync } = require("child_process");
 
-const files = globSync("src/**/*.{ts,tsx}", { ignore: "src/**/types.ts" });
+console.log("Starting two-step build process...\n");
 
-let reactImportPlugin = {
-  name: "react-import",
-  setup(build) {
-    build.onLoad({ filter: /\.(tsx|jsx)$/ }, async (args) => {
-      const fs = require("fs");
-      let contents = await fs.promises.readFile(args.path, "utf8");
+try {
+  // Step 1: Build component CSS files
+  console.log("Running Step 1: Building component CSS files...");
+  execSync("node esbuild-styles.cjs", { stdio: "inherit" });
 
-      // Add React import at the top if the file uses JSX
-      if (!contents.includes("import React")) {
-        contents = `import React from 'react';\n${contents}`;
-      }
+  // Step 2: Build component JS files
+  console.log("\nRunning Step 2: Building component JS files...");
+  execSync("node esbuild-dist.cjs", { stdio: "inherit" });
 
-      return { contents, loader: args.path.endsWith(".tsx") ? "tsx" : "jsx" };
-    });
-  },
-};
-
-let filePlugin = {
-  name: "files",
-  setup(build) {
-    // Mark all relative paths as external
-    build.onResolve({ filter: /(^.\/)|(^..\/)/ }, (args) => {
-      if (args.path.startsWith("./src")) {
-        return;
-      }
-      return { path: args.path, external: true };
-    });
-  },
-};
-
-esbuild
-  .build({
-    entryPoints: [...files, "src/theme.css"],
-    bundle: true,
-    format: "esm",
-    external: ["./*", "../*", "react", "react-dom"],
-    outdir: "dist",
-    plugins: [
-      reactImportPlugin,
-      linariaEsbuildPlugin({
-        sourceMap: true,
-      }),
-      filePlugin,
-    ],
-    loader: { ".png": "dataurl" },
-    packages: "external",
-  })
-  .then(() => {
-    // Copy theme.css to dist
-    const fs = require("fs");
-    const path = require("path");
-    fs.copyFileSync(
-      path.join(__dirname, "src", "theme.css"),
-      path.join(__dirname, "dist", "theme.css")
-    );
-    // Inline the @import in theme.css
-    let themeCss = fs.readFileSync(
-      path.join(__dirname, "dist", "theme.css"),
-      "utf8"
-    );
-    const importRegex = /@import "\.\/themes\/([^"]+)\.css";\n/g;
-    themeCss = themeCss.replace(importRegex, (match, theme) => {
-      const themePath = path.join(__dirname, "src", "themes", `${theme}.css`);
-      if (fs.existsSync(themePath)) {
-        return fs.readFileSync(themePath, "utf8") + "\n";
-      }
-      return match;
-    });
-    fs.writeFileSync(path.join(__dirname, "dist", "theme.css"), themeCss);
-  })
-  .catch((e) => console.error(e.message));
+  console.log("\n✓ Build complete!");
+} catch (error) {
+  console.error("Build failed:", error.message);
+  process.exit(1);
+}

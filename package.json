@@ -21,7 +21,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "node esbuild.cjs"
+    "build:styles": "node esbuild-styles.cjs",
+    "build:dist": "node esbuild-dist.cjs",
+    "build": "npm run build:styles && npm run build:dist"
   },
   "author": "",
   "license": "ISC",
