@@ -6,4 +6,24 @@ potential idea
 
 <!-- alternative -->
 
+(1)
+
 - postinstall script to inject css
+
+(2)
+
+- 2 different build during build step
+  - 1st step -> build styles
+  - 2nd step -> build theme.css with all styles from step 1 and all the themes imported so user do not need to manually import the styles, styles is imported when they use our theme provider
+
+const themes = {
+mylegacy: {
+primary
+secondary...
+},
+lifesg: {
+
+}
+}
+
+build -> script -> themes -> css files -> theme.css

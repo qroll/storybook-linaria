@@ -3,7 +3,6 @@
 import { Button } from "storybook-linaria/button";
 import { ButtonV1 } from "storybook-linaria/button-v1";
 import "storybook-linaria/button/styles.css";
-import "storybook-linaria/theme.css";
 import { ThemeProvider, useTheme } from "storybook-linaria/ThemeProvider";
 import { ThemeType } from "../../dist/theme.types";
 
