@@ -1,4 +1,5 @@
 import { Alert, Cat, Dog, Navbar } from "@lifesg/react-design-system";
+import "@lifesg/react-design-system/styles.css"
 
 export default function Page() {
   return (
