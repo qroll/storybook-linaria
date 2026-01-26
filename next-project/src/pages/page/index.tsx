@@ -1,4 +1,7 @@
-import { Alert, Cat, Dog, Navbar } from "@lifesg/react-design-system";
+import { Dog } from "@lifesg/react-design-system/dog";
+import { Cat } from "@lifesg/react-design-system/cat";
+import { Navbar } from "@lifesg/react-design-system/navbar";
+import { Alert } from "@lifesg/react-design-system/alert";
 
 export default function Page() {
   return (
