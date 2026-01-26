@@ -1,0 +1,20 @@
+
+import { Dog } from "@lifesg/react-design-system/dog";
+import { Cat } from "@lifesg/react-design-system/cat";
+import { Navbar } from "@lifesg/react-design-system/navbar";
+import { Alert } from "@lifesg/react-design-system/alert";
+// import "@lifesg/react-design-system/styles.css"
+
+export default function Page() {
+  return (
+    <div>
+      Page Component
+      <Alert type="error">Hello</Alert>
+      <Navbar items={{ desktop: [] }} />
+      <Cat type="tabby" />
+      <Cat type="siamese" size="small" />
+      <Dog type="husky" />
+      <Dog type="poodle" style={{ height: 100, width: 180 }} />
+    </div>
+  );
+}
