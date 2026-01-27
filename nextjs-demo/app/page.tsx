@@ -2,8 +2,8 @@
 
 import { Button } from "storybook-linaria/button";
 import { ButtonV1 } from "storybook-linaria/button-v1";
-import { ThemeProvider, useTheme } from "storybook-linaria/ThemeProvider";
-import { ThemeType } from "../../dist/theme.types";
+import { ThemeProvider, useTheme } from "../../src/ThemeProvider";
+import type { ThemeType } from "../../src/theme.types";
 
 export default function Home() {
   return (
