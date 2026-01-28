@@ -3,6 +3,10 @@
 import { Button } from "storybook-linaria/button";
 import { ButtonV1 } from "storybook-linaria/button-v1";
 import { ThemeProvider, useTheme } from "../../src/ThemeProvider";
+import {
+  useDesignToken,
+  useDesignTokens,
+} from "../../src/useDesignToken";
 import type { ThemeType } from "../../src/theme.types";
 
 export default function Home() {
@@ -16,6 +20,19 @@ export default function Home() {
 function HomeContent() {
   const { theme, setTheme } = useTheme();
 
+  // Test useDesignToken hook - single token
+  const primaryColor = useDesignToken("--primary-50");
+  const textColor = useDesignToken("--text");
+
+  // Test useDesignTokens hook - multiple tokens
+  const tokens = useDesignTokens([
+    "--primary-50",
+    "--primary-60",
+    "--bg",
+    "--text",
+    "--border",
+  ]);
+
   const handleThemeChange = (theme: ThemeType) => {
     setTheme(theme);
   };
@@ -25,6 +42,7 @@ function HomeContent() {
         <h1 className="text-4xl font-bold mb-12 text-center">
           Button Component Comparison
         </h1>
+
 
         <div className="mb-8 text-center">
           <p className="text-sm text-gray-600 mb-3 font-medium">
@@ -203,6 +221,69 @@ function HomeContent() {
               </div>
             </div>
           </div>
+        </div>
+
+        
+        {/* Design Token Display Section */}
+        <div className="mt-4 mb-8 p-6 border border-gray-200 rounded-lg bg-gray-50">
+          <h2 className="text-xl font-semibold mb-4">
+            Runtime Design Token Retrieval
+          </h2>
+
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <h3 className="font-medium mb-2">
+                useDesignToken (single tokens):
+              </h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <span>--primary-50:</span>
+                  <code className="bg-gray-200 px-2 py-1 rounded">
+                    {primaryColor || "loading..."}
+                  </code>
+                  <div
+                    className="w-6 h-6 border rounded"
+                    style={{ backgroundColor: primaryColor }}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span>--text:</span>
+                  <code className="bg-gray-200 px-2 py-1 rounded">
+                    {textColor || "loading..."}
+                  </code>
+                  <div
+                    className="w-6 h-6 border rounded"
+                    style={{ backgroundColor: textColor }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-medium mb-2">
+                useDesignTokens (multiple tokens):
+              </h3>
+              <div className="space-y-1 text-sm">
+                {Object.entries(tokens).map(([name, value]) => (
+                  <div key={name} className="flex items-center gap-2">
+                    <span>{name}:</span>
+                    <code className="bg-gray-200 px-2 py-1 rounded">
+                      {value || "loading..."}
+                    </code>
+                    <div
+                      className="w-4 h-4 border rounded"
+                      style={{ backgroundColor: value }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p className="text-xs text-gray-500">
+            These values update automatically when the theme changes. Try
+            switching themes above!
+          </p>
         </div>
       </main>
     </div>
