@@ -32,7 +32,7 @@ const Motion = {
 
 const ThemeButton = {
   "button-radius": "4px",
-  "button-default-colour-bg": "#0052CC",
+  "button-default-colour-bg": "#00cc74",
   "button-default-colour-bg-hover": "#0065FF",
   "button-default-colour-text": "#FFFFFF",
   "button-secondary-colour-border": "#0052CC",
