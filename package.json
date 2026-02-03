@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "node esbuild.js"
@@ -27,10 +26,14 @@
     "styled-components": "^6.3.6"
   },
   "devDependencies": {
+    "@chromatic-com/playwright": "^0.12.8",
+    "@playwright/test": "^1.58.1",
     "@storybook/addon-a11y": "^10.1.11",
     "@storybook/addon-docs": "^10.1.11",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
     "@storybook/react-webpack5": "^10.1.11",
+    "@types/node": "^25.2.0",
+    "chromatic": "^15.0.0",
     "esbuild": "0.27.2",
     "glob": "^13.0.0",
     "prop-types": "^15.8.1",
