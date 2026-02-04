@@ -9,6 +9,7 @@ import {
 } from "./button.styles";
 import { ButtonProps } from "./types";
 import { typesets } from "../typesets";
+import { useState } from "react";
 
 export const Button = (props: ButtonProps) => {
   const {
@@ -56,9 +57,24 @@ export const Button = (props: ButtonProps) => {
         css`
           margin-left: 16px;
           color: pink;
-        `
+        `,
       )}
       {...otherProps}
     />
+  );
+};
+
+export const Toggle = () => {
+  const [toggled, setToggled] = useState(false);
+  return (
+    <div>
+      <Button
+        onClick={() => setToggled(!toggled)}
+        styleType={toggled ? "secondary" : "default"}
+      >
+        Click to toggle
+      </Button>
+      {toggled && <div>You have toggled the button!</div>}
+    </div>
   );
 };

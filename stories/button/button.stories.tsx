@@ -1,9 +1,9 @@
-import { fn } from "storybook/test";
-
-import { Button } from "../../src/button";
 import { css } from "@linaria/core";
+import type { StoryObj } from "@storybook/react-vite";
+import { expect, fn } from "storybook/test";
+import { Button, Toggle } from "../../src/button";
 
-export default {
+const meta = {
   title: "Example/Button",
   component: Button,
   parameters: {
@@ -11,8 +11,11 @@ export default {
   },
   tags: ["autodocs"],
 };
+export default meta;
 
-export const Primary = {
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
   render: () => {
     return (
       <>
@@ -39,5 +42,39 @@ export const Primary = {
         </Button>
       </>
     );
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    onClick: fn(),
+  },
+  render: (args) => {
+    return (
+      <Button disabled data-testid="disabled-button" {...args}>
+        Disabled button
+      </Button>
+    );
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    await expect(
+      await canvas.findByRole("button", { name: "Disabled button" }),
+    ).toBeVisible();
+    await userEvent.click(canvas.getByTestId("disabled-button"));
+    await expect(args.onClick).not.toHaveBeenCalled();
+  },
+};
+
+export const Toggled: Story = {
+  render: (args) => {
+    return <Toggle />;
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    await userEvent.click(
+      await canvas.findByRole("button", { name: "Click to toggle" }),
+    );
+    await expect(
+      await canvas.findByText("You have toggled the button!"),
+    ).toBeVisible();
   },
 };
